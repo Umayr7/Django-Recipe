@@ -12,6 +12,8 @@ docker-compose run --rm app sh -c "flake8"
 # Create Django Project via Docker Compose
 docker-compose run --rm app sh -c "django-admin startproject app ."
 
-
 # Run the service via Docker Compose
 docker-compose up
+
+# Command to Run Django Tests
+docker-compose run --rm app sh -c "python manage.py test"
