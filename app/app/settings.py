@@ -102,6 +102,12 @@ AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
+    {
+        'NAME': 'core.validators.password_policy_validator.PasswordPolicyValidator',
+        'OPTIONS': {
+            'min_length': 8,
+        }
+    }
 ]
 
 

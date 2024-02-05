@@ -9,6 +9,8 @@ from django.contrib.auth.models import (
     PermissionsMixin,
 )
 
+from core.validators.password_policy_validator import PasswordPolicyValidator
+
 
 class UserManager(BaseUserManager):
     """Manager for User"""
@@ -18,8 +20,14 @@ class UserManager(BaseUserManager):
         if not email:
             raise ValueError('Users must have an email address')
 
+        """Validate the password according to password policy"""
+        password_policy = PasswordPolicyValidator()
+        password_policy.validate(password)
+
+
         user = self.model(email=self.normalize_email(email), **extra_fields)
         user.set_password(password)
+
         user.save(using=self._db)
 
         return user
