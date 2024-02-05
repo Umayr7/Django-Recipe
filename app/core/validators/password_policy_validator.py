@@ -3,8 +3,9 @@ Passowrd Policy Validation
 """
 
 import re
-from django.core.exceptions  import ValidationError
+from django.core.exceptions import ValidationError
 from django.utils.translation import gettext as _
+
 
 class PasswordPolicyValidator:
     """Password Policy Valdiator"""
@@ -22,7 +23,8 @@ class PasswordPolicyValidator:
     def validate(self, password, user=None):
         if len(password) < self.min_length:
             raise ValidationError(
-                _('Password must be at least {0} characters long').format(self.min_length),
+                _('Password must be at least {0} \
+                  characters long').format(self.min_length),
                 code='password_too_short',
             )
 
@@ -52,5 +54,7 @@ class PasswordPolicyValidator:
 
     def get_help_text(self):
         return _(
-            "Your password must be at least {} characters long and include at least 1 uppercase letter, 1 lowercase letter, 1 special character, and 3 numeric characters.".format(self.min_length)
+            "Your password must be at least {} characters long and \
+                include at least 1 uppercase letter, 1 lowercase letter, \
+                    1 special character, and 3 numeric characters.".format(self.min_length)
         )

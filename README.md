@@ -29,3 +29,6 @@ docker-compose run --rm app sh -c "python manage.py wait_for_db && flake8"
 
 # Make Model Migrations
 docker-compose run --rm app sh -c "python manage.py makemigrations"
+
+# Create Superuser
+docker-compose run --rm app sh -c "python manage.py createsuperuser"

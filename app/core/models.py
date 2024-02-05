@@ -24,7 +24,6 @@ class UserManager(BaseUserManager):
         password_policy = PasswordPolicyValidator()
         password_policy.validate(password)
 
-
         user = self.model(email=self.normalize_email(email), **extra_fields)
         user.set_password(password)
 
@@ -40,6 +39,7 @@ class UserManager(BaseUserManager):
         user.save(using=self._db)
 
         return user
+
 
 class User(AbstractBaseUser, PermissionsMixin):
     """User Schema"""
