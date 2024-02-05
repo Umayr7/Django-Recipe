@@ -1,4 +1,4 @@
-# Django-Recipe
+# Django-Recipe-API with dockerization and github actions CI/CD
 
 # Build Dockerfile
 docker build .
