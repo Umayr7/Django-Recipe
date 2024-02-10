@@ -56,5 +56,6 @@ class PasswordPolicyValidator:
         return _(
             "Your password must be at least {} characters long and \
                 include at least 1 uppercase letter, 1 lowercase letter, \
-                    1 special character, and 3 numeric characters.".format(self.min_length)
+                    1 special character, and 3 numeric \
+                        characters.".format(self.min_length)
         )
